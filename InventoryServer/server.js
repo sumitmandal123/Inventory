@@ -3,6 +3,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const productRouter = require('./router/productRouter');
 const accoutRouter = require('./router/accountRouter');
+const warehouseRouter = require('./router/warehouseRouter');
 const connectDB = require('./config/databaseConnection');
 const errorHandler = require('./middleware/error')
 const logger = require('./middleware/logger')
@@ -30,6 +31,8 @@ app.use(cors());
 app.use('/api/Product', productRouter);
 app.use('/api/account', accoutRouter);
 
+app.use('/api', productRouter);
+app.use('/api', warehouseRouter);
 app.use(errorHandler);
 app.use(logger)
 
