@@ -8,6 +8,7 @@ const connectDB = require('./config/databaseConnection');
 const errorHandler = require('./middleware/error')
 const logger = require('./middleware/logger')
 const cors = require('cors')
+var cookieParser = require('cookie-parser')
 
 //Using Enviroment varriable
 dotenv.config({ path: "./config/config.env" });
@@ -23,7 +24,9 @@ const app = express();
 
 //Body Parser
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
+
 
 //Mount Router
 
