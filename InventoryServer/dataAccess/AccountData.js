@@ -18,19 +18,19 @@ exports.login = async (res, req) => {
 
     //Validate email and password
     if (!email || !password) {
-        return next(new ErrorResponse('please provide an email and pssword', 400));
+        return new ErrorResponse('please provide an email and pssword', 400);
     }
 
     const userData = await User.findOne({ email }).select('+password');
 
     if (!userData) {
-        return next(new ErrorResponse('please provide valid email and password', 401));
+        return new ErrorResponse('please provide valid email and password', 401);
     }
 
     const isMtch = await userData.matchPassword(password);
 
     if (!isMtch) {
-        return next(new ErrorResponse('please provide valid email and password', 401));
+        return new ErrorResponse('please provide valid email and password', 401);
     }
 
     sendTokenResponse(userData, 200, res);
