@@ -1,11 +1,12 @@
-const express =require('express');
-const {getAllProductData,addNewProductData} = require('../controllers/productDataController');
+const express = require('express');
+const { getAllProductData, addNewProductData } = require('../controllers/productDataController');
 const router = express.Router();
 
 router.route('/getAllProducts')
-.get(getAllProductData);
+    .get(getAllProductData);
 router.route('/AddNewProduct')
-.post(addNewProductData);
+    .post(addNewProductData);
+
 
 
 module.exports = router;

@@ -2,6 +2,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const productRouter = require('./router/productRouter');
+const accoutRouter = require('./router/accountRouter');
 const connectDB = require('./config/databaseConnection');
 const errorHandler = require('./middleware/error')
 const logger = require('./middleware/logger')
@@ -25,7 +26,10 @@ app.use(cors());
 
 //Mount Router
 
-app.use('/api', productRouter);
+
+app.use('/api/Product', productRouter);
+app.use('/api/account', accoutRouter);
+
 app.use(errorHandler);
 app.use(logger)
 
