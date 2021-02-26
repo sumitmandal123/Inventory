@@ -1,5 +1,6 @@
 const User = require("../model/usermodel");
 const { sendTokenResponse } = require('../utils/commonFunction');
+const ErrorResponse = require('../utils/errorResponse');
 
 exports.register = async (res, req) => {
     const { name, email, password, role } = req.body;
